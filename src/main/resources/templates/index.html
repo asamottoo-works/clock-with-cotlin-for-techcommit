@@ -22,8 +22,21 @@
 <body>
 
 <div class="clock">
-    <p class="clock__word" th:text="${time}"></p>
+    <p id="clock__word" class="clock__word"></p>
 </div>
+
+<script>
+    function showClock1() {
+        var nowTime = new Date();
+        var nowHour = nowTime.getHours();
+        var nowMin  = nowTime.getMinutes();
+        var nowSec  = nowTime.getSeconds();
+        var msg = nowHour + ":" + nowMin + ":" + nowSec;
+        document.getElementById("clock__word").innerHTML = msg;
+        if (nowSec === 0) window.location.reload();
+    }
+    setInterval('showClock1()',1000);
+</script>
 
 </body>
 </html>
